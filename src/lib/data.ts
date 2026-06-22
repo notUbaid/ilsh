@@ -60,9 +60,13 @@ export type Coverage = {
   note: string | null;
 };
 
+// 5 minutes — data doesn't change in real-time for visitors
+const STALE = 5 * 60 * 1000;
+
 export function useVideos() {
   return useQuery({
     queryKey: ["videos"],
+    staleTime: STALE,
     queryFn: async () => {
       const { data, error } = await supabase
         .from("videos")
@@ -78,6 +82,7 @@ export function useVideos() {
 export function useMemories() {
   return useQuery({
     queryKey: ["memories"],
+    staleTime: STALE,
     queryFn: async () => {
       const { data, error } = await supabase
         .from("memories")
@@ -93,6 +98,7 @@ export function useMemories() {
 export function useSchedule() {
   return useQuery({
     queryKey: ["schedule"],
+    staleTime: STALE,
     queryFn: async () => {
       const { data, error } = await supabase
         .from("schedule_events")
@@ -107,6 +113,7 @@ export function useSchedule() {
 export function useCoverage() {
   return useQuery({
     queryKey: ["coverage"],
+    staleTime: 60 * 1000, // 1 min — coverage can change more frequently
     queryFn: async () => {
       const { data, error } = await supabase
         .from("coverage")

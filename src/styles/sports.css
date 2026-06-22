@@ -573,3 +573,33 @@ footer{background:var(--ink);padding:62px 5% 28px;}
   .founders-band-card{grid-template-columns:1fr;}
   .founders-band-photo{min-height:260px;background-position:center 20%;}
 }
+
+/* ─── SKELETON LOADING ─── */
+@keyframes skShimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position:  600px 0; }
+}
+
+.sk-block,
+.sk-line {
+  background: linear-gradient(
+    90deg,
+    var(--parchment) 25%,
+    #ece5d8 50%,
+    var(--parchment) 75%
+  );
+  background-size: 1200px 100%;
+  animation: skShimmer 1.6s ease-in-out infinite;
+  border-radius: 8px;
+  display: block;
+}
+
+.sk-line        { height: 14px; width: 100%; margin-bottom: 10px; }
+.sk-line-short  { width: 42%; }
+.sk-line-med    { width: 68%; }
+.sk-line-xs     { width: 80px; height: 12px; }
+
+/* Prevent hover effects on skeleton cards */
+.sk-card { pointer-events: none; }
+.sk-card .sk-block,
+.sk-card .sk-line { border-radius: 8px; }

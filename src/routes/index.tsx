@@ -2,6 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useCoverage, useVideos, useMemories, useSchedule, fmt } from "@/lib/data";
 import { VideoCard, MemoryCard, ScheduleEvent } from "@/components/Cards";
+import {
+  VideoGridSkeleton,
+  MemoriesGridSkeleton,
+  ScheduleSkeleton,
+  CoverageCardSkeleton,
+} from "@/components/Skeletons";
 import { Footer } from "@/components/Footer";
 import { assetUrl } from "@/lib/assets";
 import heroBgAsset from "@/assets/hero-bg.png.asset.json";
@@ -30,10 +36,10 @@ const REAL_SHOTS = [
 ];
 
 function Home() {
-  const { data: cov } = useCoverage();
-  const { data: videos = [] } = useVideos();
-  const { data: memories = [] } = useMemories();
-  const { data: schedule = [] } = useSchedule();
+  const { data: cov, isLoading: covLoading } = useCoverage();
+  const { data: videos = [], isLoading: videosLoading } = useVideos();
+  const { data: memories = [], isLoading: memoriesLoading } = useMemories();
+  const { data: schedule = [], isLoading: scheduleLoading } = useSchedule();
   const upcoming = schedule.filter((s) => s.status !== "completed").slice(0, 3);
   const nextEvt = schedule
     .filter((s) => s.status === "upcoming")
@@ -82,34 +88,38 @@ function Home() {
             <div className="hstat"><div className="hstat-n">7K<span style={{ color: "var(--saff)", fontSize: ".5em" }}>+</span></div><div className="hstat-l">Posts</div></div>
             <div className="hstat"><div className="hstat-n" style={{ color: "var(--saff-d)" }}>#1</div><div className="hstat-l">In India</div></div>
           </div>
-          <div className="hero-cov-card">
-            {cov?.active ? (
-              <>
-                <div className="hcc-tag"><div className="hcc-dot" />Currently Covering</div>
-                <div className="hcc-name">{cov.name}</div>
-                <div className="hcc-metas">
-                  <div className="hcc-m"><i className="fas fa-map-marker-alt" />{cov.city}</div>
-                  <div className="hcc-m"><i className="fas fa-building" />{cov.venue}</div>
-                  <div className="hcc-m"><i className="fas fa-calendar-alt" />{fmt(cov.start_date)} — {fmt(cov.end_date)}</div>
-                </div>
-                <div className="hcc-actions">
-                  <a href={cov.yt_url ?? "#"} target="_blank" rel="noreferrer" className="btn btn-yt btn-sm"><i className="fab fa-youtube" />Watch Live</a>
-                  <a href={cov.ig_url ?? "#"} target="_blank" rel="noreferrer" className="btn btn-sm" style={{ background: "rgba(255,255,255,.1)", color: "white" }}><i className="fab fa-instagram" />Instagram</a>
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="hcc-tag" style={{ color: "rgba(255,255,255,.5)" }}>Next Tournament</div>
-                <div className="hcc-name">{nextEvt ? nextEvt.name : "Coming Soon"}</div>
-                <div className="hcc-metas">
-                  {nextEvt && <div className="hcc-m"><i className="fas fa-calendar-alt" />{fmt(nextEvt.start_date)}</div>}
-                </div>
-                <div className="hcc-actions">
-                  <Link to="/schedule" className="btn btn-sm btn-saff">View Schedule</Link>
-                </div>
-              </>
-            )}
-          </div>
+          {covLoading ? (
+            <CoverageCardSkeleton />
+          ) : (
+            <div className="hero-cov-card">
+              {cov?.active ? (
+                <>
+                  <div className="hcc-tag"><div className="hcc-dot" />Currently Covering</div>
+                  <div className="hcc-name">{cov.name}</div>
+                  <div className="hcc-metas">
+                    <div className="hcc-m"><i className="fas fa-map-marker-alt" />{cov.city}</div>
+                    <div className="hcc-m"><i className="fas fa-building" />{cov.venue}</div>
+                    <div className="hcc-m"><i className="fas fa-calendar-alt" />{fmt(cov.start_date)} — {fmt(cov.end_date)}</div>
+                  </div>
+                  <div className="hcc-actions">
+                    <a href={cov.yt_url ?? "#"} target="_blank" rel="noreferrer" className="btn btn-yt btn-sm"><i className="fab fa-youtube" />Watch Live</a>
+                    <a href={cov.ig_url ?? "#"} target="_blank" rel="noreferrer" className="btn btn-sm" style={{ background: "rgba(255,255,255,.1)", color: "white" }}><i className="fab fa-instagram" />Instagram</a>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="hcc-tag" style={{ color: "rgba(255,255,255,.5)" }}>Next Tournament</div>
+                  <div className="hcc-name">{nextEvt ? nextEvt.name : "Coming Soon"}</div>
+                  <div className="hcc-metas">
+                    {nextEvt && <div className="hcc-m"><i className="fas fa-calendar-alt" />{fmt(nextEvt.start_date)}</div>}
+                  </div>
+                  <div className="hcc-actions">
+                    <Link to="/schedule" className="btn btn-sm btn-saff">View Schedule</Link>
+                  </div>
+                </>
+              )}
+            </div>
+          )}
         </div>
       </div>
 
@@ -127,17 +137,19 @@ function Home() {
             All Videos <i className="fas fa-arrow-right" />
           </button>
         </div>
-        <div className="vgrid">
-          {videos.length > 0 ? (
-            videos.slice(0, 6).map((v) => <VideoCard key={v.id} v={v} />)
-          ) : (
-            <div className="empty" style={{ gridColumn: "1/-1" }}>
-              <div className="ei">📺</div>
-              <h3>Videos coming soon</h3>
-              <p>Check back after our next tournament!</p>
-            </div>
-          )}
-        </div>
+        {videosLoading ? (
+          <VideoGridSkeleton count={6} />
+        ) : videos.length > 0 ? (
+          <div className="vgrid">
+            {videos.slice(0, 6).map((v) => <VideoCard key={v.id} v={v} />)}
+          </div>
+        ) : (
+          <div className="empty" style={{ gridColumn: "1/-1" }}>
+            <div className="ei">📺</div>
+            <h3>Videos coming soon</h3>
+            <p>Check back after our next tournament!</p>
+          </div>
+        )}
       </div>
 
       <div className="divider" />
@@ -151,17 +163,19 @@ function Home() {
           </div>
           <Link to="/memories" className="va">All Memories <i className="fas fa-arrow-right" /></Link>
         </div>
-        <div className="masonry">
-          {memories.length > 0 ? (
-            memories.slice(0, 8).map((m) => <MemoryCard key={m.id} m={m} />)
-          ) : (
-            <div className="empty">
-              <div className="ei">📸</div>
-              <h3>Memories coming soon</h3>
-              <p>Moments from our next tournament will appear here.</p>
-            </div>
-          )}
-        </div>
+        {memoriesLoading ? (
+          <MemoriesGridSkeleton count={8} />
+        ) : memories.length > 0 ? (
+          <div className="masonry">
+            {memories.slice(0, 8).map((m) => <MemoryCard key={m.id} m={m} />)}
+          </div>
+        ) : (
+          <div className="empty">
+            <div className="ei">📸</div>
+            <h3>Memories coming soon</h3>
+            <p>Moments from our next tournament will appear here.</p>
+          </div>
+        )}
       </div>
 
       <div className="band">
@@ -190,7 +204,9 @@ function Home() {
           <Link to="/schedule" className="va">Full Schedule <i className="fas fa-arrow-right" /></Link>
         </div>
         <div>
-          {upcoming.length ? (
+          {scheduleLoading ? (
+            <ScheduleSkeleton count={3} />
+          ) : upcoming.length ? (
             upcoming.map((e) => <ScheduleEvent key={e.id} e={e} />)
           ) : (
             <div className="empty"><div className="ei">📅</div><h3>No Upcoming Events</h3><p>Check back soon!</p></div>

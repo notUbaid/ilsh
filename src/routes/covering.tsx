@@ -4,8 +4,35 @@ import { Footer } from "@/components/Footer";
 
 export const Route = createFileRoute("/covering")({ component: CoveringPage });
 
+function CoveringPageSkeleton() {
+  return (
+    <div className="page active">
+      <div className="cov-hero">
+        <div className="cov-hero-inner" style={{ maxWidth: 820 }}>
+          <div className="sk-line sk-line-short" style={{ height: 30, maxWidth: 180, marginBottom: 18, borderRadius: 50 }} />
+          <div className="sk-line" style={{ height: 64, maxWidth: 460, marginBottom: 16 }} />
+          <div className="sk-line sk-line-med" style={{ marginBottom: 36 }} />
+          <div className="meta-row">
+            {[1, 2, 3, 4].map((k) => (
+              <div key={k} className="mbox sk-block" style={{ minHeight: 80 }} />
+            ))}
+          </div>
+          <div style={{ display: "flex", gap: 11 }}>
+            <div className="sk-block" style={{ width: 160, height: 44, borderRadius: 50 }} />
+            <div className="sk-block" style={{ width: 160, height: 44, borderRadius: 50 }} />
+          </div>
+        </div>
+      </div>
+      <Footer full={false} />
+    </div>
+  );
+}
+
 function CoveringPage() {
-  const { data: cov } = useCoverage();
+  const { data: cov, isLoading } = useCoverage();
+
+  if (isLoading) return <CoveringPageSkeleton />;
+
   if (!cov?.active) {
     return (
       <div className="page active">

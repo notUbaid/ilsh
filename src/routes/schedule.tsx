@@ -1,12 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useSchedule } from "@/lib/data";
 import { ScheduleEvent } from "@/components/Cards";
+import { ScheduleSkeleton } from "@/components/Skeletons";
 import { Footer } from "@/components/Footer";
 
 export const Route = createFileRoute("/schedule")({ component: SchedulePage });
 
 function SchedulePage() {
-  const { data: schedule = [] } = useSchedule();
+  const { data: schedule = [], isLoading } = useSchedule();
   const groups: Record<string, typeof schedule> = {};
   [...schedule]
     .sort((a, b) => new Date(a.start_date).getTime() - new Date(b.start_date).getTime())
@@ -25,7 +26,9 @@ function SchedulePage() {
         <p className="sp" style={{ marginBottom: 38 }}>
           Follow our complete itinerary as we move city to city covering Indian basketball.
         </p>
-        {schedule.length === 0 ? (
+        {isLoading ? (
+          <ScheduleSkeleton count={6} />
+        ) : schedule.length === 0 ? (
           <div className="empty"><div className="ei">📅</div><h3>No schedule yet</h3></div>
         ) : (
           Object.entries(groups).map(([mo, evs]) => (

@@ -4,13 +4,16 @@ import { fmt } from "@/lib/data";
 export function VideoCard({ v }: { v: Video }) {
   const href = v.yt_id ? `https://youtu.be/${v.yt_id}` : "https://www.youtube.com/@indianlivesportshub";
   return (
-    <div className="vcard rev vis" onClick={() => window.open(href, "_blank")}>
+    <div className="vcard" onClick={() => window.open(href, "_blank")}>
       <div className="vthumb">
         {v.yt_id ? (
           <img
-            src={`https://img.youtube.com/vi/${v.yt_id}/hqdefault.jpg`}
+            src={`https://img.youtube.com/vi/${v.yt_id}/mqdefault.jpg`}
             alt={v.title}
+            width={320}
+            height={180}
             loading="lazy"
+            decoding="async"
           />
         ) : (
           <div className="vthumb-ph">🏀</div>
@@ -34,7 +37,7 @@ export function MemoryCard({ m }: { m: Memory }) {
   const h = m.height || 180;
   return (
     <div
-      className="mcard rev vis"
+      className="mcard"
       style={{ cursor: m.ig_url ? "pointer" : "default" }}
       onClick={() => m.ig_url && window.open(m.ig_url, "_blank")}
     >
@@ -45,6 +48,7 @@ export function MemoryCard({ m }: { m: Memory }) {
             src={m.img_url}
             alt={m.title}
             loading="lazy"
+            decoding="async"
             style={{ width: "100%", height: h, objectFit: "cover", display: "block" }}
           />
         ) : (
@@ -77,7 +81,7 @@ export function ScheduleEvent({ e }: { e: SchEvent }) {
       ? <span className="sbadge upcoming">◷ Upcoming</span>
       : <span className="sbadge completed">✓ Completed</span>;
   return (
-    <div className={`sevent ${e.status} rev vis`}>
+    <div className={`sevent ${e.status}`}>
       <div className="sdbox">
         <div className="sdbox-m">{mo}</div>
         <div className="sdbox-d">{dy}</div>
