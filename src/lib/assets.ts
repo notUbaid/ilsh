@@ -25,8 +25,8 @@ type AssetJson = { url: string; original_filename?: string; r2_key?: string };
 export function assetUrl(asset: AssetJson): string {
   if (!IS_LOVABLE_CDN(asset.url)) return asset.url;
   // Extract filename from url or r2_key
-  const filename = asset.original_filename ?? asset.url.split("/").pop() ?? "";
-  return (
-    PLACEHOLDERS[filename] ?? `https://placehold.co/800x450?text=${encodeURIComponent(filename)}`
-  );
+  const filename = asset.original_filename
+    ?? asset.url.split("/").pop()
+    ?? "";
+  return PLACEHOLDERS[filename] ?? `https://placehold.co/800x450?text=${encodeURIComponent(filename)}`;
 }

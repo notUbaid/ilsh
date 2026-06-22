@@ -14,7 +14,8 @@ export const fmt = (ds?: string | null) => {
   }
 };
 
-export const YT_THUMB = (id: string) => `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+export const YT_THUMB = (id: string) =>
+  `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
 
 export type Video = {
   id: string;
@@ -114,7 +115,11 @@ export function useCoverage() {
     queryKey: ["coverage"],
     staleTime: 60 * 1000, // 1 min — coverage can change more frequently
     queryFn: async () => {
-      const { data, error } = await supabase.from("coverage").select("*").eq("id", 1).maybeSingle();
+      const { data, error } = await supabase
+        .from("coverage")
+        .select("*")
+        .eq("id", 1)
+        .maybeSingle();
       if (error) throw error;
       return data as Coverage | null;
     },

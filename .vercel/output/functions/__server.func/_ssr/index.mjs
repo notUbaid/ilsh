@@ -5,8 +5,30 @@ function record(error) {
 }
 if (typeof globalThis.addEventListener === "function") {
   globalThis.addEventListener("error", (event) => record(event.error ?? event));
-  globalThis.addEventListener("unhandledrejection", (event) => record(event.reason));
+  globalThis.addEventListener(
+    "unhandledrejection",
+    (event) => record(event.reason)
+  );
 }
+if (typeof process !== "undefined" && typeof process.on === "function") {
+  process.on("uncaughtException", (err) => record(err));
+  process.on("unhandledRejection", (reason) => record(reason));
+}
+const wrapConsole = (method) => {
+  const original = console[method];
+  console[method] = function(...args) {
+    const errArg = args.find((a) => a instanceof Error);
+    if (errArg) {
+      record(errArg);
+    } else {
+      record(new Error(`Captured console.${method}: ` + args.map((a) => String(a)).join(" ")));
+    }
+    original.apply(console, args);
+  };
+};
+wrapConsole("error");
+wrapConsole("warn");
+wrapConsole("log");
 function consumeLastCapturedError() {
   if (!lastCapturedError) return void 0;
   if (Date.now() - lastCapturedError.at > TTL_MS) {
@@ -20,7 +42,9 @@ function consumeLastCapturedError() {
 let serverEntryPromise;
 async function getServerEntry() {
   if (!serverEntryPromise) {
-    serverEntryPromise = import("./server-BMHABm4z.mjs").then((m) => m.default ?? m);
+    serverEntryPromise = import("./server-BZP1vbek.mjs").then(
+      (m) => m.default ?? m
+    );
   }
   return serverEntryPromise;
 }
@@ -38,8 +62,8 @@ async function normalizeCatastrophicSsrResponse(response) {
     `<!doctype html><html><body><h1>Catastrophic SSR Error</h1><pre>${actualError?.stack || actualError?.message || String(actualError)}</pre></body></html>`,
     {
       status: 500,
-      headers: { "content-type": "text/html; charset=utf-8" },
-    },
+      headers: { "content-type": "text/html; charset=utf-8" }
+    }
   );
 }
 const server = {
@@ -54,10 +78,12 @@ const server = {
         `<!doctype html><html><body><h1>Internal Server Error</h1><pre>${error?.stack || error?.message || String(error)}</pre></body></html>`,
         {
           status: 500,
-          headers: { "content-type": "text/html; charset=utf-8" },
-        },
+          headers: { "content-type": "text/html; charset=utf-8" }
+        }
       );
     }
-  },
+  }
 };
-export { server as default };
+export {
+  server as default
+};

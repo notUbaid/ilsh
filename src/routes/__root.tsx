@@ -1,6 +1,10 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Outlet, createRootRouteWithContext, HeadContent, Scripts } from "@tanstack/react-router";
-import { Analytics } from "@vercel/analytics/react";
+import {
+  Outlet,
+  createRootRouteWithContext,
+  HeadContent,
+  Scripts,
+} from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
@@ -17,31 +21,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Indian Live Sports Hub — India's Basketball Voice" },
       {
         name: "description",
-        content:
-          "India's first dedicated basketball streaming channel — covering district, state, and national tournaments live across India.",
+        content: "India's first dedicated basketball streaming channel — covering district, state, and national tournaments live across India.",
       },
       { property: "og:title", content: "Indian Live Sports Hub — India's Basketball Voice" },
       { name: "twitter:title", content: "Indian Live Sports Hub — India's Basketball Voice" },
-      {
-        property: "og:description",
-        content:
-          "India's first dedicated basketball streaming channel — covering district, state, and national tournaments live across India.",
-      },
-      {
-        name: "twitter:description",
-        content:
-          "India's first dedicated basketball streaming channel — covering district, state, and national tournaments live across India.",
-      },
-      {
-        property: "og:image",
-        content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/dd428f04-fada-4342-af85-5e70f88ad0f7/id-preview-848cd00b--c68537f8-6a10-4933-95b1-898d2d60e8b4.lovable.app-1780510914529.png",
-      },
-      {
-        name: "twitter:image",
-        content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/dd428f04-fada-4342-af85-5e70f88ad0f7/id-preview-848cd00b--c68537f8-6a10-4933-95b1-898d2d60e8b4.lovable.app-1780510914529.png",
-      },
+      { property: "og:description", content: "India's first dedicated basketball streaming channel — covering district, state, and national tournaments live across India." },
+      { name: "twitter:description", content: "India's first dedicated basketball streaming channel — covering district, state, and national tournaments live across India." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/dd428f04-fada-4342-af85-5e70f88ad0f7/id-preview-848cd00b--c68537f8-6a10-4933-95b1-898d2d60e8b4.lovable.app-1780510914529.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/dd428f04-fada-4342-af85-5e70f88ad0f7/id-preview-848cd00b--c68537f8-6a10-4933-95b1-898d2d60e8b4.lovable.app-1780510914529.png" },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:type", content: "website" },
     ],
@@ -63,22 +50,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
   }),
-  errorComponent: (props) => (
-    <RootShell>
-      <div style={{ padding: "2rem", color: "red" }}>
-        <h1>React SSR Error</h1>
-        <pre style={{ whiteSpace: "pre-wrap" }}>{props.error?.message}</pre>
-        <pre style={{ whiteSpace: "pre-wrap" }}>{props.error?.stack}</pre>
-      </div>
-    </RootShell>
-  ),
-  notFoundComponent: () => (
-    <RootShell>
-      <div style={{ padding: "2rem" }}>
-        <h1>404 Not Found</h1>
-      </div>
-    </RootShell>
-  ),
   shellComponent: RootShell,
   component: RootComponent,
 });
@@ -86,13 +57,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
+      <head><HeadContent /></head>
+      <body>{children}<Scripts /></body>
     </html>
   );
 }
@@ -105,7 +71,6 @@ function RootComponent() {
       <Ticker />
       <Nav />
       <Outlet />
-      <Analytics />
     </QueryClientProvider>
   );
 }

@@ -24,10 +24,7 @@ function AuthPage() {
       });
       setBusy(false);
       if (error) toast.error(error.message);
-      else {
-        toast.success("Account created — signing you in...");
-        navigate({ to: "/admin" });
-      }
+      else { toast.success("Account created — signing you in..."); navigate({ to: "/admin" }); }
     } else {
       const { error } = await supabase.auth.signInWithPassword({ email, password });
       setBusy(false);
@@ -40,57 +37,20 @@ function AuthPage() {
     <div className="page active">
       <div className="sw" style={{ maxWidth: 480, margin: "0 auto" }}>
         <div className="eyebrow">Admin Access</div>
-        <h1 className="sh" style={{ marginBottom: 12 }}>
-          {mode === "signin" ? (
-            <>
-              Admin <em>Login</em>
-            </>
-          ) : (
-            <>
-              Create <em>Admin</em>
-            </>
-          )}
-        </h1>
+        <h1 className="sh" style={{ marginBottom: 12 }}>{mode === "signin" ? <>Admin <em>Login</em></> : <>Create <em>Admin</em></>}</h1>
         <p className="sp" style={{ marginBottom: 32 }}>
-          {mode === "signin"
-            ? "Sign in to manage your website content."
-            : "First sign-up automatically becomes the site admin."}
+          {mode === "signin" ? "Sign in to manage your website content." : "First sign-up automatically becomes the site admin."}
         </p>
         <form onSubmit={submit} className="cform">
           <label className="flbl">Email</label>
-          <input
-            className="fin"
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <input className="fin" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} />
           <label className="flbl">Password</label>
-          <input
-            className="fin"
-            type="password"
-            required
-            minLength={6}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button
-            type="submit"
-            className="btn btn-saff"
-            disabled={busy}
-            style={{ width: "100%", justifyContent: "center", padding: "13px 24px" }}
-          >
+          <input className="fin" type="password" required minLength={6} value={password} onChange={(e) => setPassword(e.target.value)} />
+          <button type="submit" className="btn btn-saff" disabled={busy} style={{ width: "100%", justifyContent: "center", padding: "13px 24px" }}>
             {busy ? "Please wait..." : mode === "signin" ? "Login" : "Create Admin Account"}
           </button>
-          <button
-            type="button"
-            onClick={() => setMode(mode === "signin" ? "signup" : "signin")}
-            className="btn btn-ghost-ink btn-sm"
-            style={{ marginTop: 14, width: "100%", justifyContent: "center" }}
-          >
-            {mode === "signin"
-              ? "First time? Create admin account"
-              : "Already have an account? Sign in"}
+          <button type="button" onClick={() => setMode(mode === "signin" ? "signup" : "signin")} className="btn btn-ghost-ink btn-sm" style={{ marginTop: 14, width: "100%", justifyContent: "center" }}>
+            {mode === "signin" ? "First time? Create admin account" : "Already have an account? Sign in"}
           </button>
         </form>
       </div>

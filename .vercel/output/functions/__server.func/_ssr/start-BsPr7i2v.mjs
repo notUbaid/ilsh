@@ -1,17 +1,9 @@
-import { s as supabase } from "./client-CN47ePur.mjs";
-import "../_libs/supabase__supabase-js.mjs";
-import "../_libs/supabase__postgrest-js.mjs";
-import "../_libs/supabase__realtime-js.mjs";
-import "../_libs/supabase__phoenix.mjs";
-import "../_libs/supabase__storage-js.mjs";
+import { s as supabase } from "./client-D2okslBf.mjs";
 import "../_libs/iceberg-js.mjs";
-import "../_libs/supabase__auth-js.mjs";
-import "tslib";
-import "../_libs/supabase__functions-js.mjs";
 var createMiddleware = (options, __opts) => {
   const resolvedOptions = {
     type: "request",
-    ...(__opts || options),
+    ...__opts || options
   };
   return {
     options: resolvedOptions,
@@ -26,7 +18,7 @@ var createMiddleware = (options, __opts) => {
     },
     server: (server) => {
       return createMiddleware({}, Object.assign(resolvedOptions, { server }));
-    },
+    }
   };
 };
 function dedupeSerializationAdapters(deduped, serializationAdapters) {
@@ -49,16 +41,18 @@ var createStart = (getOptions) => {
       }
       return options;
     },
-    createMiddleware,
+    createMiddleware
   };
 };
-const attachSupabaseAuth = createMiddleware({ type: "function" }).client(async ({ next }) => {
-  const { data } = await supabase.auth.getSession();
-  const token = data.session?.access_token;
-  return next({
-    headers: token ? { Authorization: `Bearer ${token}` } : {},
-  });
-});
+const attachSupabaseAuth = createMiddleware({ type: "function" }).client(
+  async ({ next }) => {
+    const { data } = await supabase.auth.getSession();
+    const token = data.session?.access_token;
+    return next({
+      headers: token ? { Authorization: `Bearer ${token}` } : {}
+    });
+  }
+);
 const errorMiddleware = createMiddleware().server(async ({ next }) => {
   try {
     return await next();
@@ -68,16 +62,19 @@ const errorMiddleware = createMiddleware().server(async ({ next }) => {
     }
     console.error(error);
     return new Response(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       `<!doctype html><html><body><h1>Middleware Error</h1><pre>${error?.stack || error?.message || String(error)}</pre></body></html>`,
       {
         status: 500,
-        headers: { "content-type": "text/html; charset=utf-8" },
-      },
+        headers: { "content-type": "text/html; charset=utf-8" }
+      }
     );
   }
 });
 const startInstance = createStart(() => ({
   functionMiddleware: [attachSupabaseAuth],
-  requestMiddleware: [errorMiddleware],
+  requestMiddleware: [errorMiddleware]
 }));
-export { startInstance };
+export {
+  startInstance
+};

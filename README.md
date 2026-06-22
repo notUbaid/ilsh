@@ -11,7 +11,6 @@
 ILSH is the official website for Indian Live Sports Hub — a team that travels across India to film and stream basketball tournaments at every level, from grassroots district games to national championships.
 
 The site serves as the central hub for:
-
 - Live coverage status and stream links
 - Tournament schedule and itinerary
 - Photo gallery of past tournaments
@@ -22,16 +21,16 @@ The site serves as the central hub for:
 
 ## Tech Stack
 
-| Layer           | Tech                                                       |
-| --------------- | ---------------------------------------------------------- |
-| Framework       | [TanStack Start](https://tanstack.com/start) (React + SSR) |
-| Routing         | [TanStack Router](https://tanstack.com/router)             |
-| Data fetching   | [TanStack Query](https://tanstack.com/query)               |
-| Database & Auth | [Supabase](https://supabase.com) (Postgres + Auth)         |
-| Styling         | Custom CSS design system                                   |
-| Build           | Vite + Nitro                                               |
-| Deployment      | Vercel (via Nitro Vercel preset)                           |
-| Package manager | Bun                                                        |
+| Layer | Tech |
+|---|---|
+| Framework | [TanStack Start](https://tanstack.com/start) (React + SSR) |
+| Routing | [TanStack Router](https://tanstack.com/router) |
+| Data fetching | [TanStack Query](https://tanstack.com/query) |
+| Database & Auth | [Supabase](https://supabase.com) (Postgres + Auth) |
+| Styling | Custom CSS design system |
+| Build | Vite + Nitro |
+| Deployment | Vercel (via Nitro Vercel preset) |
+| Package manager | Bun |
 
 ---
 
@@ -131,14 +130,14 @@ Vercel picks up the build automatically on every push to `main`.
 
 ## Database Schema
 
-| Table              | Purpose                                                           |
-| ------------------ | ----------------------------------------------------------------- |
-| `coverage`         | Singleton row (id=1) — current live coverage info                 |
-| `schedule_events`  | Tournament schedule with status (upcoming / covering / completed) |
-| `memories`         | Photo gallery entries with optional image uploads                 |
-| `videos`           | YouTube video IDs and metadata                                    |
-| `user_roles`       | Maps auth users to `admin` or `user` role                         |
-| `contact_messages` | Inbound contact form submissions                                  |
+| Table | Purpose |
+|---|---|
+| `coverage` | Singleton row (id=1) — current live coverage info |
+| `schedule_events` | Tournament schedule with status (upcoming / covering / completed) |
+| `memories` | Photo gallery entries with optional image uploads |
+| `videos` | YouTube video IDs and metadata |
+| `user_roles` | Maps auth users to `admin` or `user` role |
+| `contact_messages` | Inbound contact form submissions |
 
 ---
 

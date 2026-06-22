@@ -49,10 +49,9 @@ export function NavigationProgress() {
         width: `${width}%`,
         background: "var(--saff)",
         zIndex: 9999,
-        transition:
-          width === 100
-            ? "width 0.25s ease-out, opacity 0.15s ease 0.25s"
-            : "width 2.5s cubic-bezier(0.1, 0.05, 0, 1)",
+        transition: width === 100
+          ? "width 0.25s ease-out, opacity 0.15s ease 0.25s"
+          : "width 2.5s cubic-bezier(0.1, 0.05, 0, 1)",
         opacity: width === 100 ? 0 : 1,
         borderRadius: "0 2px 2px 0",
         boxShadow: "0 0 10px rgba(232,151,26,.7)",
