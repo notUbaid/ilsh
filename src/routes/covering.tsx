@@ -1,16 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { getBaseMeta } from "@/components/SEO";
 import { useCoverage, fmt } from "@/lib/data";
 import { Footer } from "@/components/Footer";
 
 export const Route = createFileRoute("/covering")({
-  head: () => ({
-    meta: getBaseMeta({
-      title: "Live Coverage — Indian Live Sports Hub",
-      description:
-        "Currently covering live basketball matches across India. Watch the live stream and highlights.",
-    }),
-  }),
   component: CoveringPage,
 });
 

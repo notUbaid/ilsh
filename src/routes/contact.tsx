@@ -1,18 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { getBaseMeta } from "@/components/SEO";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Footer } from "@/components/Footer";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: getBaseMeta({
-      title: "Contact Us — Indian Live Sports Hub",
-      description:
-        "Get in touch with the Indian Live Sports Hub team for event coverage, partnerships, and inquiries.",
-    }),
-  }),
   component: ContactPage,
 });
 

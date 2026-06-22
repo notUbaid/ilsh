@@ -1,18 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { getBaseMeta } from "@/components/SEO";
 import { useMemories } from "@/lib/data";
 import { MemoryCard } from "@/components/Cards";
 import { MemoriesGridSkeleton } from "@/components/Skeletons";
 import { Footer } from "@/components/Footer";
 
 export const Route = createFileRoute("/memories")({
-  head: () => ({
-    meta: getBaseMeta({
-      title: "Memories — Indian Live Sports Hub",
-      description:
-        "A collection of unforgettable basketball moments captured across Indian courts.",
-    }),
-  }),
   component: MemoriesPage,
 });
 
