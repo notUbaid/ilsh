@@ -63,6 +63,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
   }),
+  errorComponent: (props) => (
+    <RootShell>
+      <div style={{ padding: "2rem", color: "red" }}>
+        <h1>React SSR Error</h1>
+        <pre style={{ whiteSpace: "pre-wrap" }}>{props.error?.message}</pre>
+        <pre style={{ whiteSpace: "pre-wrap" }}>{props.error?.stack}</pre>
+      </div>
+    </RootShell>
+  ),
+  notFoundComponent: () => (
+    <RootShell>
+      <div style={{ padding: "2rem" }}>
+        <h1>404 Not Found</h1>
+      </div>
+    </RootShell>
+  ),
   shellComponent: RootShell,
   component: RootComponent,
 });
