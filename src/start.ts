@@ -11,10 +11,13 @@ const errorMiddleware = createMiddleware().server(async ({ next }) => {
       throw error;
     }
     console.error(error);
-    return new Response(renderErrorPage(), {
-      status: 500,
-      headers: { "content-type": "text/html; charset=utf-8" },
-    });
+    return new Response(
+      `<!doctype html><html><body><h1>Middleware Error</h1><pre>${(error as any)?.stack || (error as any)?.message || String(error)}</pre></body></html>`,
+      {
+        status: 500,
+        headers: { "content-type": "text/html; charset=utf-8" },
+      }
+    );
   }
 });
 
