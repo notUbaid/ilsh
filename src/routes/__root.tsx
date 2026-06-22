@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Outlet, createRootRouteWithContext, HeadContent, Scripts } from "@tanstack/react-router";
+import { Analytics } from "@vercel/analytics/react";
 import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
@@ -88,6 +89,7 @@ function RootComponent() {
       <Ticker />
       <Nav />
       <Outlet />
+      <Analytics />
     </QueryClientProvider>
   );
 }
