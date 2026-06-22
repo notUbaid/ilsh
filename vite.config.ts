@@ -12,7 +12,7 @@ export default defineConfig({
   },
   vite: {
     ssr: {
-      noExternal: ["@supabase/supabase-js", "@supabase/auth-js", "tslib"],
+      noExternal: [/supabase/, /tslib/],
     },
   },
   nitro: {
