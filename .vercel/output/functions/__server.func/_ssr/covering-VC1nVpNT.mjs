@@ -1,6 +1,6 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { L as Link } from "../_libs/tanstack__react-router.mjs";
-import { b as useCoverage, f as fmt } from "./router-v4Db8PbW.mjs";
+import { b as useCoverage, f as fmt } from "./router-CUzuktmw.mjs";
 import { F as Footer } from "./Footer-Dm_v_uht.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";

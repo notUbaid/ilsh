@@ -1,4 +1,3 @@
-import { createRootRouteWithContext } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
 export const SEO_KEYWORDS = [

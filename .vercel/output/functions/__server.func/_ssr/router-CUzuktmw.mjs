@@ -382,6 +382,12 @@ const Route$8 = createRootRouteWithContext()({
         rel: "stylesheet",
         href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       }
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(getJsonLd())
+      }
     ]
   }),
   shellComponent: RootShell,
@@ -389,10 +395,7 @@ const Route$8 = createRootRouteWithContext()({
 });
 function RootShell({ children }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("html", { lang: "en", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("head", { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(HeadContent, {}),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("script", { type: "application/ld+json", dangerouslySetInnerHTML: { __html: JSON.stringify(getJsonLd()) } })
-    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("head", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(HeadContent, {}) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("body", { children: [
       children,
       /* @__PURE__ */ jsxRuntimeExports.jsx(Scripts, {})
@@ -408,7 +411,7 @@ function RootComponent() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {})
   ] });
 }
-const $$splitComponentImporter$7 = () => import("./schedule-BHvLwv8_.mjs");
+const $$splitComponentImporter$7 = () => import("./schedule-BhWJHN-l.mjs");
 const Route$7 = createFileRoute("/schedule")({
   head: () => ({
     meta: getBaseMeta({
@@ -418,7 +421,7 @@ const Route$7 = createFileRoute("/schedule")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$7, "component")
 });
-const $$splitComponentImporter$6 = () => import("./memories-Cs6mFRNk.mjs");
+const $$splitComponentImporter$6 = () => import("./memories-CBNLtU15.mjs");
 const Route$6 = createFileRoute("/memories")({
   head: () => ({
     meta: getBaseMeta({
@@ -428,7 +431,7 @@ const Route$6 = createFileRoute("/memories")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$6, "component")
 });
-const $$splitComponentImporter$5 = () => import("./covering-OiiDeSE2.mjs");
+const $$splitComponentImporter$5 = () => import("./covering-VC1nVpNT.mjs");
 const Route$5 = createFileRoute("/covering")({
   head: () => ({
     meta: getBaseMeta({
@@ -475,11 +478,11 @@ const Route$2 = createFileRoute("/_authenticated")({
   },
   component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-const $$splitComponentImporter$1 = () => import("./index-CPpLk8ZV.mjs");
+const $$splitComponentImporter$1 = () => import("./index-DVSU2ii5.mjs");
 const Route$1 = createFileRoute("/")({
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitComponentImporter = () => import("./admin-DtvpSEq0.mjs");
+const $$splitComponentImporter = () => import("./admin-BD7yq0Wf.mjs");
 const Route = createFileRoute("/_authenticated/admin")({
   component: lazyRouteComponent($$splitComponentImporter, "component")
 });

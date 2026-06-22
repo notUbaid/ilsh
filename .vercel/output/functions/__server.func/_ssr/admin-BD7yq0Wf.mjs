@@ -3,7 +3,7 @@ import { d as useNavigate } from "../_libs/tanstack__react-router.mjs";
 import { t as toast } from "../_libs/sonner.mjs";
 import { F as Footer } from "./Footer-Dm_v_uht.mjs";
 import { s as supabase } from "./client-CN47ePur.mjs";
-import { b as useCoverage, d as useInvalidateAll, u as useSchedule, f as fmt, a as useMemories, c as useVideos } from "./router-v4Db8PbW.mjs";
+import { b as useCoverage, d as useInvalidateAll, u as useSchedule, f as fmt, a as useMemories, c as useVideos } from "./router-CUzuktmw.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
 import "../_libs/cookie-es.mjs";

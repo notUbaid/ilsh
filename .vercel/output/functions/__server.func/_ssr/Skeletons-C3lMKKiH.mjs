@@ -1,5 +1,5 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
-import { f as fmt } from "./router-v4Db8PbW.mjs";
+import { f as fmt } from "./router-CUzuktmw.mjs";
 function VideoCard({ v }) {
   const href = v.yt_id ? `https://youtu.be/${v.yt_id}` : "https://www.youtube.com/@indianlivesportshub";
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "vcard", onClick: () => window.open(href, "_blank"), children: [

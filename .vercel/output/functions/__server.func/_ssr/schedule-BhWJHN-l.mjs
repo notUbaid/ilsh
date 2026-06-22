@@ -1,6 +1,6 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
-import { u as useSchedule } from "./router-v4Db8PbW.mjs";
-import { S as ScheduleSkeleton, a as ScheduleEvent } from "./Skeletons-BfPuBZwE.mjs";
+import { u as useSchedule } from "./router-CUzuktmw.mjs";
+import { S as ScheduleSkeleton, a as ScheduleEvent } from "./Skeletons-C3lMKKiH.mjs";
 import { F as Footer } from "./Footer-Dm_v_uht.mjs";
 import "../_libs/tanstack__query-core.mjs";
 import "../_libs/tanstack__react-query.mjs";
