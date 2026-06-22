@@ -1,4 +1,4 @@
-import { j as s, L as e } from "./index-DMhGgcvu.js";
+import { j as s, L as e } from "./index-D38jfdRg.js";
 function r({ full: i = !0 }) {
   return i
     ? s.jsxs("footer", {

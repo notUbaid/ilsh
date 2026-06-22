@@ -37,7 +37,7 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
     {
       status: 500,
       headers: { "content-type": "text/html; charset=utf-8" },
-    }
+    },
   );
 }
 
@@ -54,7 +54,7 @@ export default {
         {
           status: 500,
           headers: { "content-type": "text/html; charset=utf-8" },
-        }
+        },
       );
     }
   },

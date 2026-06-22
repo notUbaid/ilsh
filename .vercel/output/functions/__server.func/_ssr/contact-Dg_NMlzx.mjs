@@ -1,6 +1,6 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { s as supabase } from "./client-CN47ePur.mjs";
-import { F as Footer } from "./Footer-Dm_v_uht.mjs";
+import { F as Footer } from "./Footer-C6UHtbqS.mjs";
 import { t as toast } from "../_libs/sonner.mjs";
 import "../_libs/supabase__supabase-js.mjs";
 import "../_libs/supabase__postgrest-js.mjs";

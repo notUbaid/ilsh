@@ -16,7 +16,7 @@ export function Nav() {
     select: (s) => ({
       pathname: s.location.pathname,
       isLoading: s.isLoading,
-      pendingLocation: s.pendingMatch?.pathname ?? null,
+      pendingLocation: (s as any).pendingMatch?.pathname ?? null,
     }),
   });
   const navigate = useNavigate();

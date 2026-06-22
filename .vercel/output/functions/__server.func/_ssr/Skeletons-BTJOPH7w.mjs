@@ -1,5 +1,5 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
-import { f as fmt } from "./router-CUzuktmw.mjs";
+import { f as fmt } from "./router-Leb6AsHr.mjs";
 function VideoCard({ v }) {
   const href = v.yt_id
     ? `https://youtu.be/${v.yt_id}`

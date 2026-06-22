@@ -16,7 +16,7 @@ const errorMiddleware = createMiddleware().server(async ({ next }) => {
       {
         status: 500,
         headers: { "content-type": "text/html; charset=utf-8" },
-      }
+      },
     );
   }
 });

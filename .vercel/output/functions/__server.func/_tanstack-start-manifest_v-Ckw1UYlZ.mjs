@@ -12,32 +12,32 @@ const tsrStartManifest = () => ({
         "/schedule",
       ],
       assets: void 0,
-      preloads: ["/assets/index-DMhGgcvu.js"],
+      preloads: ["/assets/index-D38jfdRg.js"],
     },
     "/": {
       filePath: "C:/Users/mekha/OneDrive/Desktop/Projects/ilsh/src/routes/index.tsx",
       children: void 0,
       assets: void 0,
       preloads: [
-        "/assets/index-YOP48E1F.js",
-        "/assets/Skeletons-CLVflFyJ.js",
-        "/assets/Footer-BLHjArDh.js",
+        "/assets/index-LzGZXOoI.js",
+        "/assets/Skeletons-CHYxeaue.js",
+        "/assets/Footer-Cj7SbV-q.js",
       ],
     },
     "/_authenticated": {
       filePath: "C:/Users/mekha/OneDrive/Desktop/Projects/ilsh/src/routes/_authenticated/route.tsx",
       children: ["/_authenticated/admin"],
       assets: void 0,
-      preloads: ["/assets/route-BH1aK2-c.js"],
+      preloads: ["/assets/route-Bv6hW73s.js"],
     },
     "/auth": {
       filePath: "C:/Users/mekha/OneDrive/Desktop/Projects/ilsh/src/routes/auth.tsx",
       children: void 0,
       assets: void 0,
       preloads: [
-        "/assets/auth-SQB1PQ47.js",
-        "/assets/index-G43J_2ar.js",
-        "/assets/Footer-BLHjArDh.js",
+        "/assets/auth-BtoCHbuk.js",
+        "/assets/index-Dsse7OOg.js",
+        "/assets/Footer-Cj7SbV-q.js",
       ],
     },
     "/contact": {
@@ -45,25 +45,25 @@ const tsrStartManifest = () => ({
       children: void 0,
       assets: void 0,
       preloads: [
-        "/assets/contact-BPeothKP.js",
-        "/assets/Footer-BLHjArDh.js",
-        "/assets/index-G43J_2ar.js",
+        "/assets/contact-CYCP1Nrq.js",
+        "/assets/Footer-Cj7SbV-q.js",
+        "/assets/index-Dsse7OOg.js",
       ],
     },
     "/covering": {
       filePath: "C:/Users/mekha/OneDrive/Desktop/Projects/ilsh/src/routes/covering.tsx",
       children: void 0,
       assets: void 0,
-      preloads: ["/assets/covering-Dx2BOD8I.js", "/assets/Footer-BLHjArDh.js"],
+      preloads: ["/assets/covering-Cl-eK4zJ.js", "/assets/Footer-Cj7SbV-q.js"],
     },
     "/memories": {
       filePath: "C:/Users/mekha/OneDrive/Desktop/Projects/ilsh/src/routes/memories.tsx",
       children: void 0,
       assets: void 0,
       preloads: [
-        "/assets/memories-CJ0yedWr.js",
-        "/assets/Skeletons-CLVflFyJ.js",
-        "/assets/Footer-BLHjArDh.js",
+        "/assets/memories-DQ7_Ia1f.js",
+        "/assets/Skeletons-CHYxeaue.js",
+        "/assets/Footer-Cj7SbV-q.js",
       ],
     },
     "/schedule": {
@@ -71,9 +71,9 @@ const tsrStartManifest = () => ({
       children: void 0,
       assets: void 0,
       preloads: [
-        "/assets/schedule-C11_6mTF.js",
-        "/assets/Skeletons-CLVflFyJ.js",
-        "/assets/Footer-BLHjArDh.js",
+        "/assets/schedule-BshUmyHg.js",
+        "/assets/Skeletons-CHYxeaue.js",
+        "/assets/Footer-Cj7SbV-q.js",
       ],
     },
     "/_authenticated/admin": {
@@ -81,12 +81,12 @@ const tsrStartManifest = () => ({
       children: void 0,
       assets: void 0,
       preloads: [
-        "/assets/admin-BpX8r-c7.js",
-        "/assets/index-G43J_2ar.js",
-        "/assets/Footer-BLHjArDh.js",
+        "/assets/admin-OzYG19JU.js",
+        "/assets/index-Dsse7OOg.js",
+        "/assets/Footer-Cj7SbV-q.js",
       ],
     },
   },
-  clientEntry: "/assets/index-DMhGgcvu.js",
+  clientEntry: "/assets/index-D38jfdRg.js",
 });
 export { tsrStartManifest };

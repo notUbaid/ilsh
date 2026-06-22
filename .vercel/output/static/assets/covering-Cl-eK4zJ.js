@@ -1,5 +1,5 @@
-import { b as n, j as e, L as t, f as l } from "./index-DMhGgcvu.js";
-import { F as a } from "./Footer-BLHjArDh.js";
+import { b as n, j as e, L as t, f as l } from "./index-D38jfdRg.js";
+import { F as a } from "./Footer-Cj7SbV-q.js";
 function c() {
   return e.jsxs("div", {
     className: "page active",

@@ -7,9 +7,9 @@ import {
   L as l,
   f as d,
   r as x,
-} from "./index-DMhGgcvu.js";
-import { C as f, V as w, c as y, M as k, b as S, S as C, a as I } from "./Skeletons-CLVflFyJ.js";
-import { F as L } from "./Footer-BLHjArDh.js";
+} from "./index-D38jfdRg.js";
+import { C as f, V as w, c as y, M as k, b as S, S as C, a as I } from "./Skeletons-CHYxeaue.js";
+import { F as L } from "./Footer-Cj7SbV-q.js";
 const t = [
   { src: "/youth-squad.jpeg", cap: "ILSH Youth Squad — Pre-Match Huddle", tag: "Team Spirit" },
   { src: "/crowded-court.jpg", cap: "Packed Arena — National Championship", tag: "Live Coverage" },

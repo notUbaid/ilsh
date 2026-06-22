@@ -8,7 +8,6 @@ import { Nav } from "@/components/Nav";
 import { Ticker } from "@/components/Ticker";
 import { NavigationProgress } from "@/components/NavigationProgress";
 
-
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [

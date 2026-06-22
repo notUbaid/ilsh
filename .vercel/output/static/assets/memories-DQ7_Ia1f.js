@@ -1,6 +1,6 @@
-import { a as i, j as s } from "./index-DMhGgcvu.js";
-import { M as o, b as m } from "./Skeletons-CLVflFyJ.js";
-import { F as t } from "./Footer-BLHjArDh.js";
+import { a as i, j as s } from "./index-D38jfdRg.js";
+import { M as o, b as m } from "./Skeletons-CHYxeaue.js";
+import { F as t } from "./Footer-Cj7SbV-q.js";
 function d() {
   const { data: e = [], isLoading: a } = i();
   return s.jsxs("div", {

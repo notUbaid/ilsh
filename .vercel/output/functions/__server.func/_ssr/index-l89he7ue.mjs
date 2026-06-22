@@ -6,7 +6,7 @@ import {
   a as useMemories,
   u as useSchedule,
   f as fmt,
-} from "./router-CUzuktmw.mjs";
+} from "./router-Leb6AsHr.mjs";
 import {
   C as CoverageCardSkeleton,
   V as VideoGridSkeleton,
@@ -15,8 +15,8 @@ import {
   b as MemoryCard,
   S as ScheduleSkeleton,
   a as ScheduleEvent,
-} from "./Skeletons-C3lMKKiH.mjs";
-import { F as Footer } from "./Footer-Dm_v_uht.mjs";
+} from "./Skeletons-BTJOPH7w.mjs";
+import { F as Footer } from "./Footer-C6UHtbqS.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
 import "../_libs/cookie-es.mjs";

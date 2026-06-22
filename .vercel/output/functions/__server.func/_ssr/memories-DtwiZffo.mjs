@@ -1,7 +1,7 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
-import { a as useMemories } from "./router-CUzuktmw.mjs";
-import { M as MemoriesGridSkeleton, b as MemoryCard } from "./Skeletons-C3lMKKiH.mjs";
-import { F as Footer } from "./Footer-Dm_v_uht.mjs";
+import { a as useMemories } from "./router-Leb6AsHr.mjs";
+import { M as MemoriesGridSkeleton, b as MemoryCard } from "./Skeletons-BTJOPH7w.mjs";
+import { F as Footer } from "./Footer-C6UHtbqS.mjs";
 import "../_libs/tanstack__query-core.mjs";
 import "../_libs/tanstack__react-query.mjs";
 import "../_libs/tanstack__react-router.mjs";
