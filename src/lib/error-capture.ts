@@ -15,6 +15,15 @@ if (typeof globalThis.addEventListener === "function") {
   );
 }
 
+// Intercept console.error to catch errors swallowed by h3 in Node.js/Vercel
+const originalConsoleError = console.error;
+console.error = function (...args) {
+  if (args.length > 0 && args[0] instanceof Error) {
+    record(args[0]);
+  }
+  originalConsoleError.apply(console, args);
+};
+
 export function consumeLastCapturedError(): unknown {
   if (!lastCapturedError) return undefined;
   if (Date.now() - lastCapturedError.at > TTL_MS) {
