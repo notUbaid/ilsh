@@ -84,3 +84,18 @@ export function getAlternateLinks(path: string) {
     title: `Indian Live Sports Hub (${domain.split("//")[1]})`,
   }));
 }
+
+export function getJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Indian Live Sports Hub",
+    "url": "https://www.indianlivesportshub.in",
+    "logo": "https://www.indianlivesportshub.in/ilsh-logo.png",
+    "description": SEO_DESCRIPTION,
+    "sameAs": [
+      "https://www.youtube.com/@indianlivesportshub",
+      "https://www.instagram.com/indianlivesportshub/"
+    ]
+  };
+}

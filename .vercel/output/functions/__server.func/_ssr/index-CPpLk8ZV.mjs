@@ -1,7 +1,7 @@
 import { j as jsxRuntimeExports, r as reactExports } from "../_libs/react.mjs";
 import { L as Link } from "../_libs/tanstack__react-router.mjs";
-import { b as useCoverage, c as useVideos, a as useMemories, u as useSchedule, f as fmt } from "./router-DDvwdPlT.mjs";
-import { C as CoverageCardSkeleton, V as VideoGridSkeleton, c as VideoCard, M as MemoriesGridSkeleton, b as MemoryCard, S as ScheduleSkeleton, a as ScheduleEvent } from "./Skeletons-C8kvW_IX.mjs";
+import { b as useCoverage, c as useVideos, a as useMemories, u as useSchedule, f as fmt } from "./router-v4Db8PbW.mjs";
+import { C as CoverageCardSkeleton, V as VideoGridSkeleton, c as VideoCard, M as MemoriesGridSkeleton, b as MemoryCard, S as ScheduleSkeleton, a as ScheduleEvent } from "./Skeletons-BfPuBZwE.mjs";
 import { F as Footer } from "./Footer-Dm_v_uht.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
@@ -339,37 +339,29 @@ function RealMomentsBand() {
   ] }) });
 }
 function FoundersBand() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "founders-band", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "founders-band-inner", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "founders-band", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "founders-band-inner", style: {
+    maxWidth: 760
+  }, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "founders-band-head", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "eyebrow", children: "The People Behind The Lens" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "eyebrow", children: "The Visionary Behind The Lens" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "sh", children: [
         "Built By ",
         /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "Hoopers" }),
         ", For Hoopers."
       ] })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "founders-band-grid", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "founders-band-card", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "founders-band-photo", style: {
-          backgroundImage: `url(/founder.jpeg)`
-        } }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "fb-body", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fb-role", children: "Founder · On-Ground Lead" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fb-name", children: "The Vision" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fb-q", children: '"Every court in India deserves a camera."' })
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "founders-band-card", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "founders-band-photo", style: {
-          backgroundImage: `url(/co-founder.jpg)`
-        } }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "fb-body", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fb-role", children: "Co-Founder · Lead Cinematographer" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fb-name", children: "The Lens" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fb-q", children: `"We shoot grassroots like it's the NBA Finals."` })
-        ] })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "founders-band-grid", style: {
+      gridTemplateColumns: "1fr"
+    }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "founders-band-card", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "founders-band-photo", style: {
+        backgroundImage: `url(/co-founder.jpg)`
+      } }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "fb-body", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fb-role", children: "Founder · On-Ground Lead" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fb-name", children: "Sandy Singh" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fb-q", children: '"Every court in India deserves a camera."' })
       ] })
-    ] })
+    ] }) })
   ] }) });
 }
 export {

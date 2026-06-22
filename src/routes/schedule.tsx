@@ -1,10 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { getBaseMeta } from "@/components/SEO";
 import { useSchedule } from "@/lib/data";
 import { ScheduleEvent } from "@/components/Cards";
 import { ScheduleSkeleton } from "@/components/Skeletons";
 import { Footer } from "@/components/Footer";
 
-export const Route = createFileRoute("/schedule")({ component: SchedulePage });
+export const Route = createFileRoute("/schedule")({
+  head: () => ({
+    meta: getBaseMeta({
+      title: "Schedule — Indian Live Sports Hub",
+      description: "View our upcoming coverage schedule for basketball tournaments across India.",
+    }),
+  }),
+  component: SchedulePage,
+});
 
 function SchedulePage() {
   const { data: schedule = [], isLoading } = useSchedule();

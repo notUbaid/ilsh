@@ -271,31 +271,107 @@ function NavigationProgress() {
     }
   );
 }
+const SEO_KEYWORDS = [
+  "basketball",
+  "India basketball",
+  "basketball streaming",
+  "basketball live coverage",
+  "Indian basketball tournaments",
+  "basketball India",
+  "basketball videos",
+  "live sports streaming",
+  "Faridabad basketball",
+  "Delhi basketball",
+  "Haryana basketball",
+  "basketball championship",
+  "basketball tournament coverage",
+  "basketball highlights",
+  "Indian sports",
+  "basketball grassroots",
+  "district basketball",
+  "state basketball",
+  "national basketball",
+  "basketball community India"
+];
+const SEO_DESCRIPTION = "India's first dedicated basketball streaming channel — covering district, state, and national tournaments live across India. 24 × 7 coverage from grassroots to championships.";
+const SEO_TITLE = "Indian Live Sports Hub — India's Basketball Voice";
+const OG_IMAGE = "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/dd428f04-fada-4342-af85-5e70f88ad0f7/id-preview-848cd00b--c68537f8-6a10-4933-95b1-898d2d60e8b4.lovable.app-1780510914529.png";
+const CANONICAL_DOMAINS = [
+  "https://www.indianlivesportshub.in",
+  "https://www.indianlivesportshub.com",
+  "https://www.indianlivesportshub.online"
+];
+function getBaseMeta(overrides = {}) {
+  return [
+    { charSet: "utf-8" },
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
+    { name: "color-scheme", content: "light" },
+    { name: "theme-color", content: "#E8971A" },
+    { name: "mobile-web-app-capable", content: "yes" },
+    { name: "apple-mobile-web-app-capable", content: "yes" },
+    { name: "apple-mobile-web-app-status-bar-style", content: "default" },
+    { title: overrides.title || SEO_TITLE },
+    { name: "description", content: overrides.description || SEO_DESCRIPTION },
+    { name: "keywords", content: SEO_KEYWORDS.join(", ") },
+    { name: "author", content: "Indian Live Sports Hub" },
+    { name: "creator", content: "Indian Live Sports Hub" },
+    { name: "publisher", content: "Indian Live Sports Hub" },
+    { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+    { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+    { name: "bingbot", content: "index, follow" },
+    { property: "og:title", content: overrides.title || SEO_TITLE },
+    { property: "og:description", content: overrides.description || SEO_DESCRIPTION },
+    { property: "og:image", content: overrides.image || OG_IMAGE },
+    { property: "og:image:alt", content: "Indian Live Sports Hub - Live Basketball Coverage" },
+    { property: "og:image:type", content: "image/png" },
+    { property: "og:image:width", content: "1200" },
+    { property: "og:image:height", content: "630" },
+    { property: "og:type", content: "website" },
+    { property: "og:site_name", content: "Indian Live Sports Hub" },
+    { property: "og:locale", content: "en_IN" },
+    { property: "og:locale:alternate", content: "en_US" },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: overrides.title || SEO_TITLE },
+    { name: "twitter:description", content: overrides.description || SEO_DESCRIPTION },
+    { name: "twitter:image", content: overrides.image || OG_IMAGE },
+    { name: "twitter:creator", content: "@indianlivesportshub" },
+    { name: "twitter:site", content: "@indianlivesportshub" },
+    { name: "application-name", content: "Indian Live Sports Hub" },
+    { name: "msapplication-TileColor", content: "#E8971A" },
+    { name: "msapplication-config", content: "/browserconfig.xml" }
+  ];
+}
+function getAlternateLinks(path) {
+  return CANONICAL_DOMAINS.map((domain) => ({
+    rel: "alternate",
+    href: `${domain}${path}`,
+    title: `Indian Live Sports Hub (${domain.split("//")[1]})`
+  }));
+}
+function getJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Indian Live Sports Hub",
+    "url": "https://www.indianlivesportshub.in",
+    "logo": "https://www.indianlivesportshub.in/ilsh-logo.png",
+    "description": SEO_DESCRIPTION,
+    "sameAs": [
+      "https://www.youtube.com/@indianlivesportshub",
+      "https://www.instagram.com/indianlivesportshub/"
+    ]
+  };
+}
 const Route$8 = createRootRouteWithContext()({
   head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Indian Live Sports Hub — India's Basketball Voice" },
-      {
-        name: "description",
-        content: "India's first dedicated basketball streaming channel — covering district, state, and national tournaments live across India."
-      },
-      { property: "og:title", content: "Indian Live Sports Hub — India's Basketball Voice" },
-      { name: "twitter:title", content: "Indian Live Sports Hub — India's Basketball Voice" },
-      { property: "og:description", content: "India's first dedicated basketball streaming channel — covering district, state, and national tournaments live across India." },
-      { name: "twitter:description", content: "India's first dedicated basketball streaming channel — covering district, state, and national tournaments live across India." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/dd428f04-fada-4342-af85-5e70f88ad0f7/id-preview-848cd00b--c68537f8-6a10-4933-95b1-898d2d60e8b4.lovable.app-1780510914529.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/dd428f04-fada-4342-af85-5e70f88ad0f7/id-preview-848cd00b--c68537f8-6a10-4933-95b1-898d2d60e8b4.lovable.app-1780510914529.png" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:type", content: "website" }
-    ],
+    meta: getBaseMeta(),
     links: [
       {
         rel: "icon",
         type: "image/svg+xml",
         href: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23E8971A'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%230C0F14' stroke-width='1.4'/%3E%3Cline x1='5' y1='16' x2='27' y2='16' stroke='%230C0F14' stroke-width='1.4'/%3E%3Cline x1='16' y1='5' x2='16' y2='27' stroke='%230C0F14' stroke-width='1.4'/%3E%3Cpath d='M9 7.5 Q16 13 16 16 Q16 19 9 24.5' fill='none' stroke='%230C0F14' stroke-width='1.4'/%3E%3Cpath d='M23 7.5 Q16 13 16 16 Q16 19 23 24.5' fill='none' stroke='%230C0F14' stroke-width='1.4'/%3E%3C/svg%3E"
       },
+      ...getAlternateLinks("/"),
       { rel: "stylesheet", href: appCss },
       { rel: "stylesheet", href: sportsCss },
       {
@@ -313,7 +389,10 @@ const Route$8 = createRootRouteWithContext()({
 });
 function RootShell({ children }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("html", { lang: "en", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("head", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(HeadContent, {}) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("head", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(HeadContent, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("script", { type: "application/ld+json", dangerouslySetInnerHTML: { __html: JSON.stringify(getJsonLd()) } })
+    ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("body", { children: [
       children,
       /* @__PURE__ */ jsxRuntimeExports.jsx(Scripts, {})
@@ -329,20 +408,44 @@ function RootComponent() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {})
   ] });
 }
-const $$splitComponentImporter$7 = () => import("./schedule-DntTQkHD.mjs");
+const $$splitComponentImporter$7 = () => import("./schedule-BHvLwv8_.mjs");
 const Route$7 = createFileRoute("/schedule")({
+  head: () => ({
+    meta: getBaseMeta({
+      title: "Schedule — Indian Live Sports Hub",
+      description: "View our upcoming coverage schedule for basketball tournaments across India."
+    })
+  }),
   component: lazyRouteComponent($$splitComponentImporter$7, "component")
 });
-const $$splitComponentImporter$6 = () => import("./memories-BawETiat.mjs");
+const $$splitComponentImporter$6 = () => import("./memories-Cs6mFRNk.mjs");
 const Route$6 = createFileRoute("/memories")({
+  head: () => ({
+    meta: getBaseMeta({
+      title: "Memories — Indian Live Sports Hub",
+      description: "A collection of unforgettable basketball moments captured across Indian courts."
+    })
+  }),
   component: lazyRouteComponent($$splitComponentImporter$6, "component")
 });
-const $$splitComponentImporter$5 = () => import("./covering-B7LdRBRM.mjs");
+const $$splitComponentImporter$5 = () => import("./covering-OiiDeSE2.mjs");
 const Route$5 = createFileRoute("/covering")({
+  head: () => ({
+    meta: getBaseMeta({
+      title: "Live Coverage — Indian Live Sports Hub",
+      description: "Currently covering live basketball matches across India. Watch the live stream and highlights."
+    })
+  }),
   component: lazyRouteComponent($$splitComponentImporter$5, "component")
 });
 const $$splitComponentImporter$4 = () => import("./contact-DqwaZGDS.mjs");
 const Route$4 = createFileRoute("/contact")({
+  head: () => ({
+    meta: getBaseMeta({
+      title: "Contact Us — Indian Live Sports Hub",
+      description: "Get in touch with the Indian Live Sports Hub team for event coverage, partnerships, and inquiries."
+    })
+  }),
   component: lazyRouteComponent($$splitComponentImporter$4, "component")
 });
 const $$splitComponentImporter$3 = () => import("./auth-BJWqBGWN.mjs");
@@ -372,11 +475,11 @@ const Route$2 = createFileRoute("/_authenticated")({
   },
   component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-const $$splitComponentImporter$1 = () => import("./index-D6dZbU55.mjs");
+const $$splitComponentImporter$1 = () => import("./index-CPpLk8ZV.mjs");
 const Route$1 = createFileRoute("/")({
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitComponentImporter = () => import("./admin-exkZtzeM.mjs");
+const $$splitComponentImporter = () => import("./admin-DtvpSEq0.mjs");
 const Route = createFileRoute("/_authenticated/admin")({
   component: lazyRouteComponent($$splitComponentImporter, "component")
 });

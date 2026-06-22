@@ -3,7 +3,7 @@ import { d as useNavigate } from "../_libs/tanstack__react-router.mjs";
 import { t as toast } from "../_libs/sonner.mjs";
 import { F as Footer } from "./Footer-Dm_v_uht.mjs";
 import { s as supabase } from "./client-CN47ePur.mjs";
-import { b as useCoverage, d as useInvalidateAll, u as useSchedule, f as fmt, a as useMemories, c as useVideos } from "./router-DDvwdPlT.mjs";
+import { b as useCoverage, d as useInvalidateAll, u as useSchedule, f as fmt, a as useMemories, c as useVideos } from "./router-v4Db8PbW.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
 import "../_libs/cookie-es.mjs";
@@ -249,7 +249,8 @@ function SchedulePanel() {
           ev.city,
           " · ",
           fmt(ev.start_date),
-          " · ",
+          " ·",
+          " ",
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: {
             color: "var(--saff-d)",
             fontWeight: 600
@@ -470,12 +471,12 @@ function VideosPanel() {
       display: "grid",
       gap: 10
     }, children: (data ?? []).map((v) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: rowCard, children: [
-      v.yt_id && /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: `https://img.youtube.com/vi/${v.yt_id}/default.jpg`, alt: "", style: {
+      v.yt_id && /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: `https://img.youtube.com/vi/${v.yt_id}/default.jpg`, alt: "", style: {
         width: 80,
         height: 60,
         objectFit: "cover",
         borderRadius: 6
-      } }),
+      } }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: {
         flex: 1,
         minWidth: 0
