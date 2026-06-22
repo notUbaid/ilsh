@@ -9,30 +9,16 @@ import {
   CoverageCardSkeleton,
 } from "@/components/Skeletons";
 import { Footer } from "@/components/Footer";
-import { assetUrl } from "@/lib/assets";
-import heroBgAsset from "@/assets/hero-bg.png.asset.json";
-import imgCourtAsset from "@/assets/court-empty.jpg.asset.json";
-import imgCrowdAsset from "@/assets/crowd-arena.jpg.asset.json";
-import imgFounder1Asset from "@/assets/founder-1.jpg.asset.json";
-import imgFounder2Asset from "@/assets/founder-2.jpg.asset.json";
-import imgHuddleAsset from "@/assets/team-huddle.jpg.asset.json";
-import imgFblAsset from "@/assets/fbl-banner.jpg.asset.json";
-
-const heroBg = { url: assetUrl(heroBgAsset) };
-const imgCourt = { url: assetUrl(imgCourtAsset) };
-const imgCrowd = { url: assetUrl(imgCrowdAsset) };
-const imgFounder1 = { url: assetUrl(imgFounder1Asset) };
-const imgFounder2 = { url: assetUrl(imgFounder2Asset) };
-const imgHuddle = { url: assetUrl(imgHuddleAsset) };
-const imgFbl = { url: assetUrl(imgFblAsset) };
 
 export const Route = createFileRoute("/")({ component: Home });
 
 const REAL_SHOTS = [
-  { src: imgHuddle.url, cap: "ILSH Youth Squad — Pre-Match Huddle", tag: "Team Spirit" },
-  { src: imgCrowd.url, cap: "Packed Arena — National Championship", tag: "Live Coverage" },
-  { src: imgFbl.url, cap: "Faridabad Basketball League — Season 2", tag: "Tournament" },
-  { src: imgCourt.url, cap: "Indoor Court — Pre-Game Setup", tag: "Behind the Scenes" },
+  { src: "/youth squad.jpeg", cap: "ILSH Youth Squad — Pre-Match Huddle", tag: "Team Spirit" },
+  { src: "/crowded court.jpg", cap: "Packed Arena — National Championship", tag: "Live Coverage" },
+  { src: "/faridabad league.jpg", cap: "Faridabad Basketball League — Season 2", tag: "Tournament" },
+  { src: "/court ground at night.jpg", cap: "Indoor Court — Pre-Game Setup", tag: "Behind the Scenes" },
+  { src: "/another winning team.jpg", cap: "Champions — Another Trophy, Another City", tag: "Winners" },
+  { src: "/person holding camera.jpg", cap: "Behind the Lens — Every Moment Captured", tag: "On the Ground" },
 ];
 
 function Home() {
@@ -47,7 +33,7 @@ function Home() {
 
   return (
     <div className="page active">
-      <div className="hero hero-img" style={{ backgroundImage: `linear-gradient(90deg, rgba(253,250,244,.92) 0%, rgba(253,250,244,.55) 35%, rgba(253,250,244,0) 55%), url(${heroBg.url})` }}>
+      <div className="hero hero-img" style={{ backgroundImage: `linear-gradient(90deg, rgba(253,250,244,.92) 0%, rgba(253,250,244,.55) 35%, rgba(253,250,244,0) 55%), url(/hero-bg.jpg)` }}>
         <div className="hero-l">
           <div className="hero-l-deco" />
           <div className="hero-l-deco2" />
@@ -266,7 +252,7 @@ function FoundersBand() {
         </div>
         <div className="founders-band-grid">
           <div className="founders-band-card">
-            <div className="founders-band-photo" style={{ backgroundImage: `url(${imgFounder1.url})` }} />
+            <div className="founders-band-photo" style={{ backgroundImage: `url(/founder.jpeg)` }} />
             <div className="fb-body">
               <div className="fb-role">Founder · On-Ground Lead</div>
               <div className="fb-name">The Vision</div>
@@ -274,7 +260,7 @@ function FoundersBand() {
             </div>
           </div>
           <div className="founders-band-card">
-            <div className="founders-band-photo" style={{ backgroundImage: `url(${imgFounder2.url})` }} />
+            <div className="founders-band-photo" style={{ backgroundImage: `url(/co founder.jpg)` }} />
             <div className="fb-body">
               <div className="fb-role">Co-Founder · Lead Cinematographer</div>
               <div className="fb-name">The Lens</div>

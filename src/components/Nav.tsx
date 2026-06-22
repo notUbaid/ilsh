@@ -1,9 +1,7 @@
 import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { assetUrl } from "@/lib/assets";
-import logoAsset from "@/assets/ilsh-logo.png.asset.json";
 
-const logoUrl = assetUrl(logoAsset);
+const logoUrl = "/ilsh-logo.png";
 
 const links = [
   { to: "/", label: "Home" },
