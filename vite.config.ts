@@ -10,6 +10,11 @@ export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
   },
+  vite: {
+    ssr: {
+      noExternal: ["@supabase/supabase-js", "@supabase/auth-js", "tslib"],
+    },
+  },
   nitro: {
     preset: "vercel",
     output: {
