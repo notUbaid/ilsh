@@ -1,0 +1,32 @@
+{
+  "name": "Indian Live Sports Hub",
+  "short_name": "ILSH",
+  "description": "India's first dedicated basketball streaming channel — covering district, state, and national tournaments live across India. 24 × 7 sports coverage from the court.",
+  "keywords": "basketball, India basketball, live sports, basketball streaming, Indian basketball, basketball coverage, tournament, sports channel, basketball live, Faridabad basketball, Delhi basketball, Haryana basketball, Indian sports",
+  "icons": [
+    {
+      "src": "/ilsh-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/ilsh-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDFAF4",
+  "theme_color": "#E8971A",
+  "lang": "en-IN",
+  "dir": "ltr",
+  "categories": ["sports", "entertainment", "basketball"],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=in.indianlivesportshub"
+    }
+  ],
+  "prefer_related_applications": false
+}

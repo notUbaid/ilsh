@@ -245,26 +245,18 @@ function RealMomentsBand() {
 function FoundersBand() {
   return (
     <section className="founders-band">
-      <div className="founders-band-inner">
+      <div className="founders-band-inner" style={{ maxWidth: 760 }}>
         <div className="founders-band-head">
-          <div className="eyebrow">The People Behind The Lens</div>
+          <div className="eyebrow">The Visionary Behind The Lens</div>
           <h2 className="sh">Built By <em>Hoopers</em>, For Hoopers.</h2>
         </div>
-        <div className="founders-band-grid">
-          <div className="founders-band-card">
-            <div className="founders-band-photo" style={{ backgroundImage: `url(/founder.jpeg)` }} />
-            <div className="fb-body">
-              <div className="fb-role">Founder · On-Ground Lead</div>
-              <div className="fb-name">The Vision</div>
-              <div className="fb-q">"Every court in India deserves a camera."</div>
-            </div>
-          </div>
+        <div className="founders-band-grid" style={{ gridTemplateColumns: "1fr" }}>
           <div className="founders-band-card">
             <div className="founders-band-photo" style={{ backgroundImage: `url(/co-founder.jpg)` }} />
             <div className="fb-body">
-              <div className="fb-role">Co-Founder · Lead Cinematographer</div>
-              <div className="fb-name">The Lens</div>
-              <div className="fb-q">"We shoot grassroots like it's the NBA Finals."</div>
+              <div className="fb-role">Founder · On-Ground Lead</div>
+              <div className="fb-name">Sandy Singh</div>
+              <div className="fb-q">"Every court in India deserves a camera."</div>
             </div>
           </div>
         </div>
