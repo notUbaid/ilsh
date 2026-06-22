@@ -12,9 +12,19 @@ const links = [
 ] as const;
 
 export function Nav() {
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const { pathname, isLoading, pendingLocation } = useRouterState({
+    select: (s) => ({
+      pathname: s.location.pathname,
+      isLoading: s.isLoading,
+      pendingLocation: s.pendingMatch?.pathname ?? null,
+    }),
+  });
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+
+  // The "active" path is the pending destination during navigation,
+  // falling back to current pathname when idle
+  const activePath = isLoading && pendingLocation ? pendingLocation : pathname;
 
   return (
     <nav>
@@ -33,7 +43,7 @@ export function Nav() {
             <Link
               to={l.to}
               onClick={() => setOpen(false)}
-              className={pathname === l.to ? "act" : ""}
+              className={activePath === l.to ? "act" : ""}
             >
               {l.label}
             </Link>

@@ -11,6 +11,7 @@ import appCss from "../styles.css?url";
 import sportsCss from "../styles/sports.css?url";
 import { Nav } from "@/components/Nav";
 import { Ticker } from "@/components/Ticker";
+import { NavigationProgress } from "@/components/NavigationProgress";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
@@ -66,6 +67,7 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
+      <NavigationProgress />
       <Ticker />
       <Nav />
       <Outlet />
