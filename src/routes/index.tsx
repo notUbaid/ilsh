@@ -58,11 +58,11 @@ function Home() {
             </div>
           </div>
           <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 24 }}>
-            <a href="https://www.instagram.com/indianlivesportshub/" target="_blank" rel="noreferrer" className="btn btn-sm" style={{ background: "rgba(255,255,255,.07)", color: "rgba(255,255,255,.7)", gap: 7 }}>
-              <i className="fab fa-instagram" style={{ color: "#E1306C" }} />Instagram
+            <a href="https://www.instagram.com/indianlivesportshub/" target="_blank" rel="noreferrer" className="btn btn-sm btn-ig">
+              <i className="fab fa-instagram" />Instagram
             </a>
-            <a href="https://www.youtube.com/@indianlivesportshub" target="_blank" rel="noreferrer" className="btn btn-sm" style={{ background: "rgba(255,255,255,.07)", color: "rgba(255,255,255,.7)", gap: 7 }}>
-              <i className="fab fa-youtube" style={{ color: "#FF0000" }} />@indianlivesportshub
+            <a href="https://www.youtube.com/@indianlivesportshub" target="_blank" rel="noreferrer" className="btn btn-sm btn-yt">
+              <i className="fab fa-youtube" />@indianlivesportshub
             </a>
           </div>
         </div>
