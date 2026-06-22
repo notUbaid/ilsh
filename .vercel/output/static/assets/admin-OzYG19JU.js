@@ -243,16 +243,14 @@ function B() {
       t.preventDefault();
       const l = new FormData(t.currentTarget);
       m(!0);
-      const { error: j } = await g
-        .from("schedule_events")
-        .insert({
-          name: l.get("name"),
-          city: l.get("city"),
-          venue: l.get("venue") || null,
-          start_date: l.get("start_date"),
-          end_date: l.get("end_date") || null,
-          status: l.get("status") || "upcoming",
-        });
+      const { error: j } = await g.from("schedule_events").insert({
+        name: l.get("name"),
+        city: l.get("city"),
+        venue: l.get("venue") || null,
+        start_date: l.get("start_date"),
+        end_date: l.get("end_date") || null,
+        status: l.get("status") || "upcoming",
+      });
       if ((m(!1), j)) return r.error(j.message);
       (r.success("Event added"), t.target.reset(), d());
     },
@@ -631,14 +629,12 @@ function I() {
       n.preventDefault();
       const t = new FormData(n.currentTarget);
       m(!0);
-      const { error: l } = await g
-        .from("videos")
-        .insert({
-          title: t.get("title"),
-          yt_id: t.get("yt_id") || null,
-          tour: t.get("tour") || null,
-          date_label: t.get("date_label") || null,
-        });
+      const { error: l } = await g.from("videos").insert({
+        title: t.get("title"),
+        yt_id: t.get("yt_id") || null,
+        tour: t.get("tour") || null,
+        date_label: t.get("date_label") || null,
+      });
       if ((m(!1), l)) return r.error(l.message);
       (r.success("Video added"), n.target.reset(), d());
     },

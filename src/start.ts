@@ -12,6 +12,7 @@ const errorMiddleware = createMiddleware().server(async ({ next }) => {
     }
     console.error(error);
     return new Response(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       `<!doctype html><html><body><h1>Middleware Error</h1><pre>${(error as any)?.stack || (error as any)?.message || String(error)}</pre></body></html>`,
       {
         status: 500,
