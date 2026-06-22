@@ -29,30 +29,57 @@ import "../_libs/supabase__auth-js.mjs";
 import "tslib";
 import "../_libs/supabase__functions-js.mjs";
 function MemoriesPage() {
-  const {
-    data: memories = [],
-    isLoading
-  } = useMemories();
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "page active", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sw", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "eyebrow", children: "Gallery" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "sh", style: {
-        marginBottom: 12
-      }, children: [
-        "Tournament ",
-        /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "Memories" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sp", style: {
-        marginBottom: 32
-      }, children: "Every tournament, every city — captured across India's courts." }),
-      isLoading ? /* @__PURE__ */ jsxRuntimeExports.jsx(MemoriesGridSkeleton, { count: 12 }) : memories.length ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "masonry", children: memories.map((m) => /* @__PURE__ */ jsxRuntimeExports.jsx(MemoryCard, { m }, m.id)) }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "empty", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ei", children: "📸" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "No memories yet" })
-      ] })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, { full: false })
-  ] });
+  const { data: memories = [], isLoading } = useMemories();
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+    className: "page active",
+    children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+        className: "sw",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+            className: "eyebrow",
+            children: "Gallery",
+          }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", {
+            className: "sh",
+            style: {
+              marginBottom: 12,
+            },
+            children: [
+              "Tournament ",
+              /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "Memories" }),
+            ],
+          }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", {
+            className: "sp",
+            style: {
+              marginBottom: 32,
+            },
+            children: "Every tournament, every city — captured across India's courts.",
+          }),
+          isLoading
+            ? /* @__PURE__ */ jsxRuntimeExports.jsx(MemoriesGridSkeleton, { count: 12 })
+            : memories.length
+              ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                  className: "masonry",
+                  children: memories.map((m) =>
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(MemoryCard, { m }, m.id),
+                  ),
+                })
+              : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+                  className: "empty",
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+                      className: "ei",
+                      children: "📸",
+                    }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "No memories yet" }),
+                  ],
+                }),
+        ],
+      }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, { full: false }),
+    ],
+  });
 }
-export {
-  MemoriesPage as component
-};
+export { MemoriesPage as component };

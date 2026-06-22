@@ -31,14 +31,19 @@ function SchedulePage() {
     <div className="page active">
       <div className="sw">
         <div className="eyebrow">Tour Schedule</div>
-        <h1 className="sh" style={{ marginBottom: 12 }}>Our <em>Journey</em></h1>
+        <h1 className="sh" style={{ marginBottom: 12 }}>
+          Our <em>Journey</em>
+        </h1>
         <p className="sp" style={{ marginBottom: 38 }}>
           Follow our complete itinerary as we move city to city covering Indian basketball.
         </p>
         {isLoading ? (
           <ScheduleSkeleton count={6} />
         ) : schedule.length === 0 ? (
-          <div className="empty"><div className="ei">📅</div><h3>No schedule yet</h3></div>
+          <div className="empty">
+            <div className="ei">📅</div>
+            <h3>No schedule yet</h3>
+          </div>
         ) : (
           Object.entries(groups).map(([mo, evs]) => (
             <div key={mo}>
@@ -46,7 +51,9 @@ function SchedulePage() {
                 <div className="smonth-word">{mo}</div>
                 <div className="smonth-line" />
               </div>
-              {evs.map((e) => <ScheduleEvent key={e.id} e={e} />)}
+              {evs.map((e) => (
+                <ScheduleEvent key={e.id} e={e} />
+              ))}
             </div>
           ))
         )}

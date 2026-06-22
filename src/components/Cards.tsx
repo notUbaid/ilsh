@@ -2,7 +2,9 @@ import type { Video, Memory, SchEvent } from "@/lib/data";
 import { fmt } from "@/lib/data";
 
 export function VideoCard({ v }: { v: Video }) {
-  const href = v.yt_id ? `https://youtu.be/${v.yt_id}` : "https://www.youtube.com/@indianlivesportshub";
+  const href = v.yt_id
+    ? `https://youtu.be/${v.yt_id}`
+    : "https://www.youtube.com/@indianlivesportshub";
   return (
     <div className="vcard" onClick={() => window.open(href, "_blank")}>
       <div className="vthumb">
@@ -18,7 +20,11 @@ export function VideoCard({ v }: { v: Video }) {
         ) : (
           <div className="vthumb-ph">🏀</div>
         )}
-        <div className="vplay"><div className="vplay-btn"><i className="fas fa-play" /></div></div>
+        <div className="vplay">
+          <div className="vplay-btn">
+            <i className="fas fa-play" />
+          </div>
+        </div>
       </div>
       <div className="vinfo">
         <div className="vtag">🏀 {v.tour}</div>
@@ -56,7 +62,9 @@ export function MemoryCard({ m }: { m: Memory }) {
             {m.emoji || "🏀"}
           </div>
         )}
-        <div className="mcard-ov"><div className="mcard-ov-t">▶ View on Instagram</div></div>
+        <div className="mcard-ov">
+          <div className="mcard-ov-t">▶ View on Instagram</div>
+        </div>
       </div>
       <div className="mcard-info">
         <div className="mcard-t">{m.title}</div>
@@ -75,11 +83,13 @@ export function ScheduleEvent({ e }: { e: SchEvent }) {
   const dy = d.getDate();
   const end = e.end_date ? ` — ${fmt(e.end_date)}` : "";
   const badge =
-    e.status === "covering"
-      ? <span className="sbadge covering">● Covering Now</span>
-      : e.status === "upcoming"
-      ? <span className="sbadge upcoming">◷ Upcoming</span>
-      : <span className="sbadge completed">✓ Completed</span>;
+    e.status === "covering" ? (
+      <span className="sbadge covering">● Covering Now</span>
+    ) : e.status === "upcoming" ? (
+      <span className="sbadge upcoming">◷ Upcoming</span>
+    ) : (
+      <span className="sbadge completed">✓ Completed</span>
+    );
   return (
     <div className={`sevent ${e.status}`}>
       <div className="sdbox">
@@ -89,9 +99,21 @@ export function ScheduleEvent({ e }: { e: SchEvent }) {
       <div>
         <div className="sname">{e.name}</div>
         <div className="sdets">
-          <span className="sdet"><i className="fas fa-map-marker-alt" />{e.city}</span>
-          {e.venue && <span className="sdet"><i className="fas fa-building" />{e.venue}</span>}
-          <span className="sdet"><i className="fas fa-calendar" />{fmt(e.start_date)}{end}</span>
+          <span className="sdet">
+            <i className="fas fa-map-marker-alt" />
+            {e.city}
+          </span>
+          {e.venue && (
+            <span className="sdet">
+              <i className="fas fa-building" />
+              {e.venue}
+            </span>
+          )}
+          <span className="sdet">
+            <i className="fas fa-calendar" />
+            {fmt(e.start_date)}
+            {end}
+          </span>
         </div>
       </div>
       {badge}

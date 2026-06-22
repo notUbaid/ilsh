@@ -9,7 +9,8 @@ export const Route = createFileRoute("/memories")({
   head: () => ({
     meta: getBaseMeta({
       title: "Memories — Indian Live Sports Hub",
-      description: "A collection of unforgettable basketball moments captured across Indian courts.",
+      description:
+        "A collection of unforgettable basketball moments captured across Indian courts.",
     }),
   }),
   component: MemoriesPage,
@@ -21,16 +22,25 @@ function MemoriesPage() {
     <div className="page active">
       <div className="sw">
         <div className="eyebrow">Gallery</div>
-        <h1 className="sh" style={{ marginBottom: 12 }}>Tournament <em>Memories</em></h1>
-        <p className="sp" style={{ marginBottom: 32 }}>Every tournament, every city — captured across India's courts.</p>
+        <h1 className="sh" style={{ marginBottom: 12 }}>
+          Tournament <em>Memories</em>
+        </h1>
+        <p className="sp" style={{ marginBottom: 32 }}>
+          Every tournament, every city — captured across India's courts.
+        </p>
         {isLoading ? (
           <MemoriesGridSkeleton count={12} />
         ) : memories.length ? (
           <div className="masonry">
-            {memories.map((m) => <MemoryCard key={m.id} m={m} />)}
+            {memories.map((m) => (
+              <MemoryCard key={m.id} m={m} />
+            ))}
           </div>
         ) : (
-          <div className="empty"><div className="ei">📸</div><h3>No memories yet</h3></div>
+          <div className="empty">
+            <div className="ei">📸</div>
+            <h3>No memories yet</h3>
+          </div>
         )}
       </div>
       <Footer full={false} />

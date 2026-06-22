@@ -23,11 +23,13 @@ export const SEO_KEYWORDS = [
   "basketball community India",
 ];
 
-export const SEO_DESCRIPTION = "India's first dedicated basketball streaming channel — covering district, state, and national tournaments live across India. 24 × 7 coverage from grassroots to championships.";
+export const SEO_DESCRIPTION =
+  "India's first dedicated basketball streaming channel — covering district, state, and national tournaments live across India. 24 × 7 coverage from grassroots to championships.";
 
 export const SEO_TITLE = "Indian Live Sports Hub — India's Basketball Voice";
 
-export const OG_IMAGE = "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/dd428f04-fada-4342-af85-5e70f88ad0f7/id-preview-848cd00b--c68537f8-6a10-4933-95b1-898d2d60e8b4.lovable.app-1780510914529.png";
+export const OG_IMAGE =
+  "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/dd428f04-fada-4342-af85-5e70f88ad0f7/id-preview-848cd00b--c68537f8-6a10-4933-95b1-898d2d60e8b4.lovable.app-1780510914529.png";
 
 export const CANONICAL_DOMAINS = [
   "https://www.indianlivesportshub.in",
@@ -35,7 +37,9 @@ export const CANONICAL_DOMAINS = [
   "https://www.indianlivesportshub.online",
 ];
 
-export function getBaseMeta(overrides: { title?: string; description?: string; image?: string } = {}) {
+export function getBaseMeta(
+  overrides: { title?: string; description?: string; image?: string } = {},
+) {
   return [
     { charSet: "utf-8" },
     { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -50,8 +54,14 @@ export function getBaseMeta(overrides: { title?: string; description?: string; i
     { name: "author", content: "Indian Live Sports Hub" },
     { name: "creator", content: "Indian Live Sports Hub" },
     { name: "publisher", content: "Indian Live Sports Hub" },
-    { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
-    { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+    {
+      name: "robots",
+      content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    },
+    {
+      name: "googlebot",
+      content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    },
     { name: "bingbot", content: "index, follow" },
     { property: "og:title", content: overrides.title || SEO_TITLE },
     { property: "og:description", content: overrides.description || SEO_DESCRIPTION },
@@ -88,13 +98,13 @@ export function getJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Indian Live Sports Hub",
-    "url": "https://www.indianlivesportshub.in",
-    "logo": "https://www.indianlivesportshub.in/ilsh-logo.png",
-    "description": SEO_DESCRIPTION,
-    "sameAs": [
+    name: "Indian Live Sports Hub",
+    url: "https://www.indianlivesportshub.in",
+    logo: "https://www.indianlivesportshub.in/ilsh-logo.png",
+    description: SEO_DESCRIPTION,
+    sameAs: [
       "https://www.youtube.com/@indianlivesportshub",
-      "https://www.instagram.com/indianlivesportshub/"
-    ]
+      "https://www.instagram.com/indianlivesportshub/",
+    ],
   };
 }

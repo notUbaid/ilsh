@@ -29,8 +29,17 @@ export function Nav() {
   return (
     <nav>
       <Link to="/" className="nav-logo" onClick={() => setOpen(false)}>
-        <div className="logo-mark" style={{ background: "transparent", border: "none", padding: 0 }}>
-          <img src={logoUrl} alt="ILSH" width={42} height={42} style={{ display: "block", borderRadius: "50%" }} />
+        <div
+          className="logo-mark"
+          style={{ background: "transparent", border: "none", padding: 0 }}
+        >
+          <img
+            src={logoUrl}
+            alt="ILSH"
+            width={42}
+            height={42}
+            style={{ display: "block", borderRadius: "50%" }}
+          />
         </div>
         <div className="logo-words">
           <div className="logo-top">Indian Live Sports Hub</div>
@@ -57,7 +66,8 @@ export function Nav() {
           rel="noreferrer"
           className="nav-yt"
         >
-          <i className="fab fa-youtube" />YouTube
+          <i className="fab fa-youtube" />
+          YouTube
         </a>
         <button
           className="nav-pill"
@@ -81,7 +91,9 @@ export function Nav() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
         >
-          <span /><span /><span />
+          <span />
+          <span />
+          <span />
         </button>
       </div>
     </nav>

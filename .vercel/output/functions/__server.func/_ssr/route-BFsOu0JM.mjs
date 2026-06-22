@@ -14,6 +14,4 @@ import "async_hooks";
 import "stream";
 import "../_libs/isbot.mjs";
 const SplitComponent = () => /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {});
-export {
-  SplitComponent as component
-};
+export { SplitComponent as component };

@@ -6,17 +6,18 @@ function createSupabaseClient() {
     auth: {
       storage: typeof window !== "undefined" ? localStorage : void 0,
       persistSession: true,
-      autoRefreshToken: true
-    }
+      autoRefreshToken: true,
+    },
   });
 }
 let _supabase;
-const supabase = new Proxy({}, {
-  get(_, prop, receiver) {
-    if (!_supabase) _supabase = createSupabaseClient();
-    return Reflect.get(_supabase, prop, receiver);
-  }
-});
-export {
-  supabase as s
-};
+const supabase = new Proxy(
+  {},
+  {
+    get(_, prop, receiver) {
+      if (!_supabase) _supabase = createSupabaseClient();
+      return Reflect.get(_supabase, prop, receiver);
+    },
+  },
+);
+export { supabase as s };
