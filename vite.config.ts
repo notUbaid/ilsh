@@ -10,6 +10,9 @@ export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
   },
+  ssr: {
+    noExternal: true, // Force Vite to bundle all dependencies for SSR (fixes Vercel pruning)
+  },
   nitro: {
     preset: "vercel",
     output: {
