@@ -15,17 +15,27 @@ if (typeof globalThis.addEventListener === "function") {
   );
 }
 
-const originalConsoleError = console.error;
-console.error = function (...args) {
-  const errArg = args.find((a) => a instanceof Error);
-  if (errArg) {
-    record(errArg);
-  } else {
-    // If h3 logs a string, capture it as an error
-    record(new Error("Captured console.error: " + args.map((a) => String(a)).join(" ")));
-  }
-  originalConsoleError.apply(console, args);
+if (typeof process !== "undefined" && typeof process.on === "function") {
+  process.on("uncaughtException", (err) => record(err));
+  process.on("unhandledRejection", (reason) => record(reason));
+}
+
+const wrapConsole = (method: string) => {
+  const original = (console as any)[method];
+  (console as any)[method] = function (...args: any[]) {
+    const errArg = args.find((a) => a instanceof Error);
+    if (errArg) {
+      record(errArg);
+    } else {
+      record(new Error(`Captured console.${method}: ` + args.map((a) => String(a)).join(" ")));
+    }
+    original.apply(console, args);
+  };
 };
+
+wrapConsole("error");
+wrapConsole("warn");
+wrapConsole("log");
 
 export function consumeLastCapturedError(): unknown {
   if (!lastCapturedError) return undefined;
