@@ -11,13 +11,13 @@ const IS_LOVABLE_CDN = (url: string) => url.startsWith("/__l5e/");
 const PLACEHOLDERS: Record<string, string> = {
   "hero-bg.png": "/hero-bg.jpg",
   "ilsh-logo.png": "/ilsh-logo.png",
-  "team-huddle.jpg": "/youth squad.jpeg",
-  "crowd-arena.jpg": "/crowded court.jpg",
-  "fbl-banner.jpg": "/faridabad league.jpg",
-  "court-empty.jpg": "/court ground at night.jpg",
+  "team-huddle.jpg": "/youth-squad.jpeg",
+  "crowd-arena.jpg": "/crowded-court.jpg",
+  "fbl-banner.jpg": "/faridabad-league.jpg",
+  "court-empty.jpg": "/court-ground-at-night.jpg",
   "founder-1.jpg": "/founder.jpeg",
-  "founder-2.jpg": "/co founder.jpg",
-  "action-dunk.png": "/team win.jpeg",
+  "founder-2.jpg": "/co-founder.jpg",
+  "action-dunk.png": "/team-win.jpeg",
 };
 
 type AssetJson = { url: string; original_filename?: string; r2_key?: string };

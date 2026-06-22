@@ -13,12 +13,12 @@ import { Footer } from "@/components/Footer";
 export const Route = createFileRoute("/")({ component: Home });
 
 const REAL_SHOTS = [
-  { src: "/youth squad.jpeg", cap: "ILSH Youth Squad — Pre-Match Huddle", tag: "Team Spirit" },
-  { src: "/crowded court.jpg", cap: "Packed Arena — National Championship", tag: "Live Coverage" },
-  { src: "/faridabad league.jpg", cap: "Faridabad Basketball League — Season 2", tag: "Tournament" },
-  { src: "/court ground at night.jpg", cap: "Indoor Court — Pre-Game Setup", tag: "Behind the Scenes" },
-  { src: "/another winning team.jpg", cap: "Champions — Another Trophy, Another City", tag: "Winners" },
-  { src: "/person holding camera.jpg", cap: "Behind the Lens — Every Moment Captured", tag: "On the Ground" },
+  { src: "/youth-squad.jpeg", cap: "ILSH Youth Squad — Pre-Match Huddle", tag: "Team Spirit" },
+  { src: "/crowded-court.jpg", cap: "Packed Arena — National Championship", tag: "Live Coverage" },
+  { src: "/faridabad-league.jpg", cap: "Faridabad Basketball League — Season 2", tag: "Tournament" },
+  { src: "/court-ground-at-night.jpg", cap: "Indoor Court — Pre-Game Setup", tag: "Behind the Scenes" },
+  { src: "/another-winning-team.jpg", cap: "Champions — Another Trophy, Another City", tag: "Winners" },
+  { src: "/person-holding-camera.jpg", cap: "Behind the Lens — Every Moment Captured", tag: "On the Ground" },
 ];
 
 function Home() {
@@ -260,7 +260,7 @@ function FoundersBand() {
             </div>
           </div>
           <div className="founders-band-card">
-            <div className="founders-band-photo" style={{ backgroundImage: `url(/co founder.jpg)` }} />
+            <div className="founders-band-photo" style={{ backgroundImage: `url(/co-founder.jpg)` }} />
             <div className="fb-body">
               <div className="fb-role">Co-Founder · Lead Cinematographer</div>
               <div className="fb-name">The Lens</div>
